@@ -1,13 +1,373 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+	--primary: #000;
+	--card: #fff;
+	--foreground: #000;
+	--foreground-muted: #181818;
+	--background: rgba(248, 248, 248, 0.606);
+	--input: rgb(249, 249, 249);
+	--border-radius: 4px;
+	--shadow: 0px 2px 10px 2px rgba(44, 44, 44, 0.116);
+	--shadow_light: 0px 2px 10px 2px rgb(227, 227, 227);
+}
+
+
+html {
+	font-size: 62.5%;
+	/* To easier translate pixel values to rem/em. Now 1.6rem will equal to 16px */
+}
+
+
+body {
+	font-size: 1.6rem;
+	font-family: "Roboto", sans-serif;
+
+}
+
+a {
+	color: var(--primary)
+}
+
+
+
+
+.header {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header_shadow {
+	box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.4);
+	height: 80px;
+
+}
+
+.header img {
+	width: 100px;
+}
+
+
+
+
+.sitemap {
+	padding: 14px 0 14px 30px;
+	position: relative;
+	background: linear-gradient(to bottom, #dbdbdb 0%, rgb(227, 227, 227) 50%, #ffffff 100%);
+}
+.sitemap-now{
+	font-weight: 600;
+}
+
+/* style the contact page */
+.contact-header {
+	height: 350px;
+	background-image: url('./assets/01.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+
+.contact-body {
+	background-color: var(--background);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 40px;
+}
+
+/* FORM ELEMENTS */
+.form-container {
+	transform: translateY(-200px);
+	box-shadow: var(--shadow);
+	width: 40%;
+	padding: 5%;
+	padding-top: 3%;
+	background-color: var(--card);
+}
+
+.title {
+	margin-bottom: 40px;
+	font-weight: 400;
+	text-align: center;
+}
+
+textarea {
+	width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a5a5a5; /* Replace with the desired color */
+}
+
+input[type="text"] {
+	width: 100%;
+	background-color: var(--input);
+	border: none;
+	border-radius: var(--border-radius);
+	padding: 20px;
+}
+
+
+.input-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	column-gap: 20px;
+	row-gap: 12px;
+	margin: 20px 0;
+}
+
+.dropdown-container {
+	width: 100%;
+	padding: 18px 5px;
+	border: 1px solid var(--primary);
+	border-radius: var(--border-radius);
+	position: relative;
+	cursor: pointer;
+}
+.dropdown-container div:nth-child(1) {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px;
+
+}
+
+/* dropdown hidden content */
+.dropdown-container div:nth-child(2) {
+	cursor: pointer;
+	position: absolute;
+	top: 65px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow_light);
+	background-color: var(--card);
+	padding: 10px;
+	overflow-y: scroll;
+}
+
+
+.option {
+	padding: 12px;
+	text-align: start;
+	color: var(--foreground-muted);
+	font-size: 1.5rem;
+}
+
+.border  {
+	border-bottom: 1px solid  rgb(231, 231, 231);
+}
+
+
+
+
+.text-area label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+.text-area textarea {
+	background-color: var(--input);
+	border: none;
+	padding: 20px;
+	resize: none;
+	line-height: 1.6;
+	border-radius: var(--border-radius);
+
+}
+
+.checkbox input {
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+
+.acceptance-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.4rem;
+	margin-top: 8%;
+}
+
+.button-container {
+	margin-top: 8%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-bottom: 5%;
+}
+
+button {
+	min-width: 200px;
+	background-color: var(--primary);
+	padding: 14px 20px;
+	border-radius: var(--border-radius);
+	color: white;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+button svg {
+	margin-left: 10px;
+}
+
+/* style all the footer elements */
+.footer {
+	min-height: 60px;
+	padding: 0 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.terms {
+	display: grid;
+	grid-template-columns: 1fr 2px 1fr;
+	gap: 20px;
+}
+/* divider */
+.terms span {
+	width: 1px;
+	height: 100%;
+	background-color: var(--primary);
+}
+
+/* submited form */
+.submitted_wrapper {
+	background-color: rgb(245, 245, 245);
+	min-height: calc(100vh - 140px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+}
+
+.submited-container {
+	box-shadow: var(--shadow);
+	width: 50%;
+	padding: 2%;
+	padding-top: 3%;
+	background-color: var(--card);
+}
+
+.submitted-info {
+	min-height: 60px;
+	background-color: var(--input);
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	font-weight: 600;
+	border-radius: var(--border-radius);
+	margin-bottom: 30px;
+}
+
+.submitted-message {
+	background-color: var(--input);
+	border-radius: var(--border-radius);
+	padding: 7%;
+}
+
+.submitted-message h3 {
+	margin-bottom: 20px;
+}
+.submitted-message p {
+	max-width: 400px;
+	line-height: 1.6;
+}
+.submitted-button {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-top: 30px;
+}
+.submitted-button button {
+	padding: 20px 12px;
+	background-color: var(--primary);
+	border-radius: var(--border-radius);
+}
+@media screen and (max-width: 1322px) {
+	.form-container {
+		width: 70%;
+	}
+
+	.submited-container {
+		width: 70%;
+	
+	}
+}
+@media screen and (max-width: 960px) {
+	.form-container {
+		width: 80%;
+	}
+	.submited-container {
+		width: 80%;
+	}
+
+	
+	
+	
+}
+@media screen and (max-width: 700px) {
+	.footer {
+		min-height: 60px;
+		padding: 0 ;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.footer span,.terms {
+		margin-bottom: 20px;
+	}
+	
+	.input-grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, 1fr);
+
+	}
+	.dropdown-container {
+		padding: 12px 10px;
+	}
+
+	.dropdown-container div:nth-child(1) {
+		padding: 5px;
+	}
+	.submitted-button button {
+		padding: 12px 12px;
+	}
+	.submitted-info {
+		flex-direction: column;
+	}
+	.submitted-info span {
+		margin: 6px;
+		display: block;
+	}
+	.submitted_wrapper {
+		height: 100%;
+	}
+
+	.acceptance-container {
+		flex-direction: column;
+	}
+	.acceptance-container span {
+		margin-bottom: 10px;
+	}
+
+
 }
